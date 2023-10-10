@@ -4,14 +4,13 @@ on:
     branches:
       - storybook-community
 jobs:
-  # Single deploy job since we're just deploying
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2.3.1
 
-      - name: Install and Build 🔧
+      - name: Install and Build
         run: |
           npm ci
           npm run build-storybook
