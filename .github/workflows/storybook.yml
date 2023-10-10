@@ -1,0 +1,23 @@
+name: Storybook
+on:
+  push:
+    branches:
+      - storybook-community
+jobs:
+  # Single deploy job since we're just deploying
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install and Build 🔧
+        run: |
+          npm ci
+          npm run build-storybook
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.6.2
+        with:
+          branch: storybook-community-pages
+          folder: storybook-static # output folder from `npm run build-storybook`
