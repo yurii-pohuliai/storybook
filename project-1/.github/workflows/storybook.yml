@@ -19,4 +19,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
           branch: storybook-pages
-          folder: project-1/storybook-static # output folder from `npm run build-storybook`
+          folder: storybook-static # output folder from `npm run build-storybook`
